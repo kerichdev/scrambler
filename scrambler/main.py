@@ -10,4 +10,6 @@ from scrambler.__init__ import bot
 
 def main():
     print("[LOG]: Started!")
+    if __debug__:
+        print("[DEBUG]: Debug mode enabled")
     bot.polling()

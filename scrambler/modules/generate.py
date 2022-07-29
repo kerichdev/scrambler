@@ -32,7 +32,7 @@ def generate(message):
     cube_notation_size = len(cube_notation) - 1
 
     if __debug__:
-        print("[LOG]: Cube notation size =", cube_notation_size)
+        print("[DEBUG]: Cube notation size =", cube_notation_size)
 
     # Generate scramble
     scramble = open("scramble.txt", "a")
@@ -43,7 +43,10 @@ def generate(message):
     while counter < cube_moves:
         move = cube_notation[SystemRandom().randint(0, cube_notation_size)]
         if __debug__:
-            print("[LOG]: move =", move, "old_move =", old_move)
+            if move[0] == old_move[0]:
+                print("[DEBUG]: move =", move, "| old_move =", old_move, "| SKIP")
+            else:
+                print("[DEBUG]: move =", move, "| old_move =", old_move)
         if move[0] != old_move[0]:
             scramble.write("%s " % move)
             counter += 1
