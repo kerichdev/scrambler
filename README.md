@@ -12,8 +12,10 @@
 -   In case you want to debug the code, run `./start.sh -d` or `./start.sh --debug`
 
 ## Supported cubes
--   3x3
 -   2x2
+-   3x3
+-   4x4
+-   5x5
 
 ## Copyright
 ```text

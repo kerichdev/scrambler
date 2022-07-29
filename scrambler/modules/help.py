@@ -14,7 +14,7 @@ Scrambler help:
 > /help: Shows this message
 
 > /generate <cube type>: Generate a scramble for the cube, example /generate 3x3
-  Currently supported cubes: 3x3, 2x2
+  Currently supported cubes: 2x2, 3x3, 4x4, 5x5
 
 > /start: Hey, i'm alive
 """

@@ -25,3 +25,24 @@ std_cube = [
     "B2",
     "D2",
 ]
+
+four_cube = std_cube + [
+    "Fw",
+    "Rw",
+    "Uw",
+    "Lw",
+    "Bw",
+    "Dw",
+    "Fw'",
+    "Rw'",
+    "Uw'",
+    "Lw'",
+    "Bw'",
+    "Dw'",
+    "Fw2",
+    "Rw2",
+    "Uw2",
+    "Lw2",
+    "Bw2",
+    "Dw2",
+]
