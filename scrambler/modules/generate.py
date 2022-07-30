@@ -24,19 +24,21 @@ def generate(message):
     sleep(1)
 
     # Get some info about the cube mentioned, fall back to 3x3 if it doesn't exist
-    cube_notation = getcubenotation(message.text.replace("/generate ", ""))
-    cube_moves = getcubemoves(message.text.replace("/generate ", ""))
-    cube_type = getcubetype(message.text.replace("/generate ", ""))
+    try:
+        cube_msg = message.text.split(" ")[1]
+    except IndexError:  # Fallback to 3x3
+        cube_msg = "3x3"
+
+    cube_notation = getcubenotation(cube_msg)
+    cube_moves = getcubemoves(cube_msg)
+    cube_type = getcubetype(cube_msg)
 
     # Get size of the notation
     cube_notation_size = len(cube_notation) - 1
 
-    if __debug__:
-        print("[DEBUG]: Cube notation size =", cube_notation_size)
-
     # Generate scramble
     scramble = open("scramble.txt", "a")
-    scramble.write("Requested scramble generated for %s:\n\n" % cube_type)
+    scramble.write(f"Requested scramble generated for {cube_type}:\n\n")
     old_move = " "
     counter = 0
 
@@ -44,11 +46,11 @@ def generate(message):
         move = cube_notation[SystemRandom().randint(0, cube_notation_size)]
         if __debug__:
             if move[0] == old_move[0]:
-                print("[DEBUG]: move =", move, "| old_move =", old_move, "| SKIP")
+                print(f"[DEBUG]: move = {move} | old_move = {old_move} | SKIP")
             else:
-                print("[DEBUG]: move =", move, "| old_move =", old_move)
+                print(f"[DEBUG]: move = {move} | old_move = {old_move}")
         if move[0] != old_move[0]:
-            scramble.write("%s " % move)
+            scramble.write(f"{move} ")
             counter += 1
         old_move = move
     scramble.close()
