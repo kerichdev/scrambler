@@ -11,7 +11,6 @@ from scrambler.defs.getcube import (
     getcubemoves,
     getcubetype,
 )
-from os import remove
 from secrets import SystemRandom
 from time import sleep
 
@@ -37,8 +36,7 @@ def generate(message):
     cube_notation_size = len(cube_notation) - 1
 
     # Generate scramble
-    scramble = open("scramble.txt", "a")
-    scramble.write(f"Requested scramble generated for {cube_type}:\n\n")
+    scramble = []
     old_move = " "
     counter = 0
 
@@ -50,12 +48,12 @@ def generate(message):
             else:
                 print(f"[DEBUG]: move = {move} | old_move = {old_move}")
         if move[0] != old_move[0]:
-            scramble.write(f"{move} ")
+            scramble.append(f"{move}")
             counter += 1
         old_move = move
-    scramble.close()
-    bot.edit_message_text(open("scramble.txt", "r").read(), msg.chat.id, msg.message_id)
-
-    # Cleanup for the next run
-    remove("scramble.txt")
+    bot.edit_message_text(
+        f"Scramble generated for {cube_type}\n\n" + " ".join(scramble),
+        msg.chat.id,
+        msg.message_id,
+    )
     print("[LOG]: Finished generating scramble!")
