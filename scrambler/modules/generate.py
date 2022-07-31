@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-from scrambler.__init__ import bot
+from scrambler.__init__ import bot, LOG, DEBUG
 from scrambler.defs.switcher import getcubeprops
 from secrets import SystemRandom
 from time import sleep
@@ -13,7 +13,7 @@ from time import sleep
 
 @bot.message_handler(func=lambda message: True, commands=["generate"])
 def generate(message):
-    print("[LOG]: Starting generating scramble!")
+    LOG("Starting generating scramble!")
     msg = bot.send_message(message.chat.id, "Starting generating a scramble!")
     # Sleep for 1 second
     sleep(1)
@@ -40,9 +40,9 @@ def generate(message):
         move = cube_notation[SystemRandom().randint(0, cube_notation_size)]
         if __debug__:
             if move[0] == old_move[0]:
-                print(f"[DEBUG]: move = {move} | old_move = {old_move} | SKIP")
+                DEBUG(f"move = {move} | old_move = {old_move} | SKIP")
             else:
-                print(f"[DEBUG]: move = {move} | old_move = {old_move}")
+                DEBUG(f"move = {move} | old_move = {old_move}")
         if move[0] != old_move[0]:
             scramble.append(move)
             counter += 1
@@ -52,4 +52,4 @@ def generate(message):
         msg.chat.id,
         msg.message_id,
     )
-    print("[LOG]: Finished generating scramble!")
+    LOG("Finished generating scramble!")

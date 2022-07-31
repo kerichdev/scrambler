@@ -5,11 +5,11 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-from scrambler.__init__ import bot
+from scrambler.__init__ import bot, LOG, DEBUG
 
 
 def main():
-    print("[LOG]: Started!")
+    LOG("Started!")
     if __debug__:
-        print("[DEBUG]: Debug mode enabled")
+        DEBUG("Debug mode enabled")
     bot.polling()
