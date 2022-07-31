@@ -4,7 +4,7 @@
 
 ## Setup
 1.  Clone this repo
-2.  Copy `example_config.txt` into `config.txt`
+2.  Copy `example.env` into `.env` and fill up the necessary values
 3.  Add your bot api key inside the `config.txt` file
 4.  run `pip3 install -r requirement.txt`
 5.  run `./start.sh`
