@@ -6,12 +6,7 @@
 #
 
 from scrambler.__init__ import bot
-from scrambler.vars.switcher import (
-    std_cube,
-    switcher_notation,
-    switcher_moves,
-    switcher_type,
-)
+from scrambler.defs.switcher import getcubeprops
 from secrets import SystemRandom
 from time import sleep
 
@@ -29,9 +24,9 @@ def generate(message):
     except IndexError:  # Fallback to 3x3
         cube_msg = "3x3"
 
-    cube_notation = switcher_notation.get(cube_msg, std_cube)
-    cube_moves = switcher_moves.get(cube_msg, 21)
-    cube_type = switcher_type.get(cube_msg, "3x3")
+    cube_notation = getcubeprops(cube_msg)[1]
+    cube_moves = getcubeprops(cube_msg)[2]
+    cube_type = getcubeprops(cube_msg)[3]
 
     # Get size of the notation
     cube_notation_size = len(cube_notation) - 1
@@ -53,7 +48,7 @@ def generate(message):
             counter += 1
         old_move = move
     bot.edit_message_text(
-        f"Scramble generated for {cube_type}\n\n" + " ".join(scramble),
+        f"Scramble generated for {cube_type}\n\n {' '.join(scramble)}",
         msg.chat.id,
         msg.message_id,
     )
