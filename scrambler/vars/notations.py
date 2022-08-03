@@ -5,44 +5,64 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-std_cube = [
-    "F",
-    "R",
+# Source: https://github.com/cs0x7f/cstimer/blob/master/src/js/scramble/megascramble.js
+
+two_cube = [
+    # U
     "U",
-    "L",
-    "B",
-    "D",
-    "F'",
-    "R'",
     "U'",
-    "L'",
-    "B'",
-    "D'",
-    "F2",
-    "R2",
     "U2",
-    "L2",
-    "B2",
-    "D2",
+    # R
+    "R",
+    "R'",
+    "R2",
+    # F
+    "F",
+    "F'",
+    "F2",
 ]
 
-four_cube = std_cube + [
-    "Fw",
-    "Rw",
+three_cube = two_cube + [
+    # D
+    "D",
+    "D'",
+    "D2",
+    # L
+    "L",
+    "L'",
+    "L2",
+    # B
+    "B",
+    "B'",
+    "B2",
+]
+
+four_cube = three_cube + [
+    # Uw
     "Uw",
-    "Lw",
-    "Bw",
-    "Dw",
-    "Fw'",
-    "Rw'",
     "Uw'",
-    "Lw'",
-    "Bw'",
-    "Dw'",
-    "Fw2",
-    "Rw2",
     "Uw2",
-    "Lw2",
-    "Bw2",
+    # Rw
+    "Rw",
+    "Rw'",
+    "Rw2",
+    # Fw
+    "Fw",
+    "Fw'",
+    "Fw2",
+]
+
+five_cube = four_cube + [
+    # Dw
+    "Dw",
+    "Dw'",
     "Dw2",
+    # Lw
+    "Lw",
+    "Lw'",
+    "Lw2",
+    # Bw
+    "Bw",
+    "Bw'",
+    "Bw2",
 ]

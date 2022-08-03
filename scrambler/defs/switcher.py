@@ -6,15 +6,17 @@
 #
 
 from scrambler.vars.notations import (
-    std_cube,
+    two_cube,
+    three_cube,
     four_cube,
+    five_cube,
 )
 
 
 def getcubeprops(var):
     return {
-        "2x2": {1: std_cube, 2: 9, 3: "2x2"},
-        "3x3": {1: std_cube, 2: 21, 3: "3x3"},
+        "2x2": {1: two_cube, 2: 9, 3: "2x2"},
+        "3x3": {1: three_cube, 2: 21, 3: "3x3"},
         "4x4": {1: four_cube, 2: 45, 3: "4x4"},
-        "5x5": {1: four_cube, 2: 60, 3: "4x4"},
-    }.get(var, {1: std_cube, 2: 21, 3: "3x3"})
+        "5x5": {1: five_cube, 2: 60, 3: "4x4"},
+    }.get(var, {1: three_cube, 2: 21, 3: "3x3"})

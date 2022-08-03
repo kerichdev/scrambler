@@ -48,7 +48,7 @@ def generate(message):
             counter += 1
         old_move = move
     bot.edit_message_text(
-        f"Scramble generated for {cube_type}\n\n {' '.join(scramble)}",
+        f"Scramble generated for {cube_type}\n\n{' '.join(scramble)}",
         msg.chat.id,
         msg.message_id,
     )
