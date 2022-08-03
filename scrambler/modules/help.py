@@ -6,15 +6,16 @@
 #
 
 from scrambler.__init__ import bot
+from scrambler.defs.switcher import switcher
 
 help_message = [
-    """
+    f"""
 Scrambler help:
 
 > /help: Shows this message
 
 > /generate <cube type>: Generate a scramble for the cube, example /generate 3x3
-  Currently supported cubes: 2x2, 3x3, 4x4, 5x5
+  Currently supported cubes: {', '.join(switcher)}
 
 > /start: Hey, i'm alive
 """
