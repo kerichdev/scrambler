@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-from scrambler.__init__ import bot, LOG, DEBUG
+from scrambler import bot, LOG, DEBUG
 from scrambler.defs.switcher import getcubeprops
 from secrets import SystemRandom
 from time import sleep

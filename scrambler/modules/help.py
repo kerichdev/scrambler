@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-from scrambler.__init__ import bot
+from scrambler import bot
 from scrambler.defs.switcher import switcher
 
 help_message = [

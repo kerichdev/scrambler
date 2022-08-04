@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-from scrambler.__init__ import bot
+from scrambler import bot
 
 welcome_message = [
     """
