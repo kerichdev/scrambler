@@ -14,7 +14,7 @@ from time import sleep
 @bot.message_handler(func=lambda message: True, commands=["generate"])
 def generate(message):
     LOG("Starting generating scramble!")
-    msg = bot.send_message(message.chat.id, "Starting generating a scramble!")
+    msg = bot.send_message(message.chat.id, "Generating a scramble...") # "Getting you a scramble..." / "Scrambling..." - TO-DO: Random prompts? Fun stuff.
     # Sleep for 1 second
     sleep(1)
 
